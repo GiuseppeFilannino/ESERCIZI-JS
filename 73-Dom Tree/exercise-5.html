@@ -1,0 +1,57 @@
+<html>
+
+
+
+<body>
+
+ <style>
+
+th,tr,td{width: 400px;}
+
+
+td{text-align: center;}
+
+
+ </style>
+
+
+  <table id='my_table' class='tabella'>
+    <thead>
+      <tr>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
+        <th>AGE</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table><br />
+  <input type='button' value='Add Row' onClick="addRow('my_table')" />
+
+
+
+</body>
+
+</html>
+
+<script>
+
+
+ 
+    function addRow(my_table) {
+      var table = document.getElementById(my_table);
+      var tbody = table.getElementsByTagName('tbody')[0];
+      var colonne = table.getElementsByTagName('th').length;
+      var tr = document.createElement('tr');
+      var nomeColonne=['Name', 'Surname', 'Age'];
+      for (var i = 0; i < colonne; i++) {
+        var td = document.createElement('td');
+        var text = document.createTextNode(prompt("Insert " + (nomeColonne[i])));
+        td.appendChild(text);
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    }
+
+</script>

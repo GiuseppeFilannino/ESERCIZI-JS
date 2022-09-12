@@ -1,0 +1,59 @@
+<html>
+
+<body>
+  <div id="container">
+    <h2>Person's Form</h2>
+    <form id="person-form">
+
+      <button id="button" type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+
+</html>
+
+<script>
+
+  function initForm() {
+
+    var Form = document.getElementById('person-form')
+    var LabelNames = ['Age: ', 'Surname: ', 'Name: '];
+    var idNames = ['age', 'surname', 'name']
+
+    for (var i = 0; i < LabelNames.length; i++) {
+      var LabelDiv = document.createElement('div');
+      var Label = document.createElement('label');
+      var input = document.createElement('input');
+      input.id = idNames[i];
+      input.placeholder = idNames[i];
+
+      var text = document.createTextNode(LabelNames[i]);
+
+      Form.prepend(LabelDiv);
+      LabelDiv.appendChild(Label);
+      Label.after(input);
+      Label.appendChild(text);
+
+    }
+  }
+
+  initForm();
+
+
+
+
+  function submitPersonForm(initForm) {
+    event.preventDefault();
+    const persons = {
+      firstname: document.querySelector('#name').value,
+      surname: document.querySelector('#surname').value,
+      age: document.querySelector('#age').value,
+    };
+
+    console.log(persons);
+  };
+
+  document.getElementById("button").addEventListener("click", submitPersonForm);
+
+
+</script>

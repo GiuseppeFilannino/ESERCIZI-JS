@@ -1,0 +1,52 @@
+<html>
+
+<style>
+  input {
+    width: 400px;
+  }
+</style>
+
+<body>
+  <div id="container">
+    <form id="form">
+      <div>
+        <label>First Name:</label>
+        <input type="text" class="form-input" id="firstName" value="Mario" />
+      </div>
+      <div>
+        <label>Last Name:</label>
+        <input type="text" class="form-input" id="lastName" value="Rossi" />
+      </div>
+      <div>
+        <label>Age:</label>
+        <input type="number" class="form-input" id="age" value="25" />
+      </div>
+      <div id="newlabel"></div>
+
+    </form>
+  </div>
+</body>
+
+</html>
+
+<script>
+
+  const Form = document.getElementById('newlabel');
+  const FirstName = document.getElementById('firstName')
+  const LastName = document.getElementById('lastName')
+  const Age = document.getElementById('age')
+  const dataPerson = document.createElement('label');
+  const personJson = document.createElement('input');
+  dataPerson.innerText = 'Data-person:';
+
+  const person = {
+    firstname: FirstName.value,
+    lastname: LastName.value,
+    age: Age.value,
+  }
+
+  personJson.value = JSON.stringify(person);
+  Form.appendChild(dataPerson);
+  dataPerson.after(personJson);
+
+</script>

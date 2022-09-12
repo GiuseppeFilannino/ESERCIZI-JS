@@ -19,27 +19,27 @@ const persons = [
   }
 ];
 
-function fetchPersonById(id) {
+function fetchPersonById(value) {
   return new Promise((resolve, reject) => {
-    if (id >= 0 && id <= 2) {
-      resolve(id);
 
-    } else {
-      reject(new Error('ID non valido'));
+
+    let person = persons.find(persona => persona.id === value)
+    if (person) {
+      resolve(person)
     }
+    else {
+      return reject(`ID number ${value} didn't match with any person`);
+
+
+    }
+
+
+
   });
 }
 
-// let promise= fetchPersonById(0);
-//  promise= fetchPersonById(1);
-//  promise= fetchPersonById(2);
-//  promise= fetchPersonById(3);  //error
 
-
-let promise= fetchPersonById(0);
+let promise = fetchPersonById(2);
 promise
-.then((id)=> {console.log(persons[id])
-return 1;},)
-.then((id)=> {console.log(persons[id]);
-return 2;})
-.then((id)=> {console.log(persons[id]);})
+.then(person=>{console.log(person)})
+.catch(err => console.log(err));

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+
+
+  <div id="container">
+    <h2>Hero's List</h2>
+    <ul class="hero-list">
+      <li class="hero-list-item">Batman</li>
+      <li class="hero-list-item">Superman</li>
+      <li class="hero-list-item">Spiderman</li>
+      <li class="hero-list-item">Hulk</li>
+      <li class="hero-list-item">Wolverine</li>
+    </ul>
+  </div>
+
+
+
+
+
+
+
+  <script>
+
+    const links = document.querySelectorAll("#container li");
+    console.log(links);
+
+    for (let i = 0; i < links.length; i++) {
+
+      links[i].addEventListener("mouseenter", mouseenterFunc);
+      links[i].addEventListener("mouseleave", mouseleaveFunc);
+
+    }
+
+    function mouseenterFunc(links) {
+
+      links.currentTarget.style.color = 'red';
+
+    }
+
+    function mouseleaveFunc(links) {
+      links.currentTarget.style.color = 'black';
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -6,17 +6,17 @@ class BankAccount {
   }
 
   deposit(amount) {
-    try {
-      // throw an exception if amount is negative
-      this.#amount += amount;
-      console.log(`Stai depositando ${amount} €`);
-      throw new SyntaxError;
+    try { 
+      if (amount < 0) {
+        throw new Error('The amount provided cannot be negative');
+      }
+
+     // throw an exception if amount is negative
+    this.#amount += amount;
+   
     } catch (err) {
 
-      if (amount < 0) {
-        console.log("Errore: il valore di deposito non può essere negativo!!")
-
-      }
+     
 
     }
   }
@@ -24,14 +24,19 @@ class BankAccount {
   withdraw(amount) {
 
     try {
+      if (amount < this.#amount) {
+        throw new Error('Errore: Non puoi prelevare più di quanto possiedi!!');
+      }
+
+
+
+
       // throw an exception if amount is negative or if withdrawal amount is greater than current amount
       console.log(`Stai prelevando ${amount} €`);
       this.#amount -= amount;
-      throw new SyntaxError;
+     
     } catch (err) {
-      if (amount > this.#amount) {
-        console.log("Errore: Non puoi prelevare più di quanto possiedi!!")
-      }
+    
 
 
     }

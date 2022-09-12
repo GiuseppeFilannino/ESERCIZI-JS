@@ -4,6 +4,10 @@ const person = {
   age: 25
 }
 
+function Print(){
+for(i of Object.keys(person)){
+console.log(`${i}: ${person[i]}`)};
+}
 
+Print();
 
-console.log(Object.entries(person));
