@@ -20,12 +20,13 @@
 </html>
 
 <script>
+  const nameLabel= document.querySelectorAll('label');
   const FirstName= document.getElementById('firstName')
-  console.log('FirstName: ', FirstName.value)
+  console.log(nameLabel[0].innerText, FirstName.value)
   const LastName= document.getElementById('lastName')
-  console.log('LastName: ', LastName.value)
+  console.log(nameLabel[1].innerText, LastName.value)
   const Age= document.getElementById('age')
-  console.log('Age: ', Age.value)
+  console.log(nameLabel[2].innerText, Age.value)
 
 
 </script>

@@ -74,4 +74,4 @@ function fetchJobById(id) {
 }
 
 
-Promise.all([fetchPersonById(3),fetchJobById(1)]).then(console.log);
+Promise.race([fetchPersonById(3),fetchJobById(2)]).then((value) => { console.log(value)});
